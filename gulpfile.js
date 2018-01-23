@@ -1,10 +1,11 @@
 const gulp        = require('gulp');
 const browserSync = require('browser-sync').create();
 const sass        = require('gulp-sass');
+const concatCss = require('gulp-concat-css');
 
 // Compile Sass & Inject Into Browser
 gulp.task('sass', function() {
-    return gulp.src(['node_modules/bootstrap/scss/bootstrap.scss', 'src/scss/*.scss'])
+    return gulp.src(['node_modules/animate.css/animate.min.css','node_modules/bootstrap/scss/bootstrap.scss', 'src/scss/*.scss'])
         .pipe(sass())
         .pipe(gulp.dest("src/css"))
         .pipe(browserSync.stream());
@@ -12,7 +13,7 @@ gulp.task('sass', function() {
 
 // Move JS Files to src/js
 gulp.task('js', function() {
-    return gulp.src(['node_modules/bootstrap/dist/js/bootstrap.min.js', 'node_modules/jquery/dist/jquery.min.js','node_modules/popper.js/dist/umd/popper.min.js'])
+    return gulp.src(['node_modules/wow.js/dist/wow.min.js','node_modules/bootstrap/dist/js/bootstrap.min.js', 'node_modules/jquery/dist/jquery.min.js','node_modules/popper.js/dist/umd/popper.min.js'])
         .pipe(gulp.dest("src/js"))
         .pipe(browserSync.stream());
 });
@@ -40,4 +41,4 @@ gulp.task('fa', function() {
     .pipe(gulp.dest('src/css'))
 })
 
-gulp.task('default', ['js','serve', 'fa', 'fonts']);
+gulp.task('default', ['js','serve', 'fa','concat_css', 'fonts']);

@@ -6,7 +6,7 @@ If you are looking for the alpha6 version [click here](https://github.com/bradtr
 
 ### Version
 
-1.0.0
+1.1.0
 
 ## Install Dependencies
 
